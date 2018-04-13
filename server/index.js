@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const db = require('../db/index.js');
 const path = require('path');
 
+
 const app = express();
 
 const jsonParser = bodyParser.json();
@@ -22,7 +23,5 @@ app.get('/api/review/:id', (req, res) => {
 });
 
 const port = process.env.PORT || 3004;
-
-//this si a test
 
 app.listen(port, () => console.log(`listening on port ${port}`));
