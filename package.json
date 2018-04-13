@@ -6,7 +6,6 @@
   "engines": {
     "node": ">=6.13.0"
   },
-<<<<<<< Updated upstream
   "scripts": {
     "build": "webpack"
   },
@@ -20,11 +19,9 @@
     "query-string": "^6.0.0",
     "react-query-params": "^1.0.7",
     "webpack": "^4.5.0",
-=======
-  "scripts": {},
-  "dependencies": {
->>>>>>> Stashed changes
-    "bootstrap": "^4.0.0-alpha.6"
+    "bootstrap": "^4.0.0-alpha.6",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -37,8 +34,6 @@
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
     "webpack-cli": "^2.0.14"
   },
   "version": "1.0.0",
