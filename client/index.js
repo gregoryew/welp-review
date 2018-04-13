@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import ReviewList from './ReviewList.jsx';
+const queryString = require('query-string');
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.props = props;
     this.state = { 
       reviews: []
     }
@@ -13,14 +15,9 @@ class App extends React.Component {
 
   componentDidMount() {
     var context = this;
-    console.log('testing');
-    const urlParams = new URLSearchParams(this.props.location.search)
-    console.log('urlParams begin');
-    console.log(urlParams);
-    console.log('urlParams end');
-    //const key = urlParams.get('id')
+    const parsed = queryString.parse(location.search);
     $.ajax({
-     url: "/welp/review/46",
+     url: "/welp/review/" + parsed.restaurant_id,
      error: function() {
         alert('error')
      },
