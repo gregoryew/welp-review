@@ -8,10 +8,30 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "build": "webpack"
   },
   "dependencies": {
+    "babel": "^6.23.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.0.14",
+    "webpack": "^4.5.0"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "webpack-cli": "^2.0.14"
   }
 }
