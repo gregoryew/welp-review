@@ -3,9 +3,9 @@ import ReviewItem from './ReviewItem.jsx';
 
 const ReviewList = props => (
   <div>
-    <div>
+    <ul>
       {props.reviews.map(review => <ReviewItem review={review} />)}
-    </div>
+    </ul>
   </div>
 );
 

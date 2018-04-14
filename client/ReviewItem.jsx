@@ -3,10 +3,10 @@ import { Container, Row, Col } from 'reactstrap';
 import VoteButton from './VoteButton.jsx';
 
 const ReviewItem = props => (
-  <div className="review-wrapper">
+  <li className="review-wrapper">
     <div className="review-content">
-      Stars: {props.review.stars}
-      <br />
+      <img src={props.review.stars} alt="" /> &nbsp; {props.review.date}
+      <br /><br />
       {props.review.text.map(line => <Line line={line} />)}
     </div>
     <div className="review-footer clearfix">
@@ -21,7 +21,8 @@ const ReviewItem = props => (
         </ul>
       </div>
     </div>
-  </div>
+    <br /><br />
+  </li>
 );
 
 const Line = props => (

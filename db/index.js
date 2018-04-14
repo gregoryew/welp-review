@@ -13,8 +13,17 @@ const retrieve = (id, callback) => {
         } else {
           for (let i = 0; i < data.length; i += 1) {
             let text = data[i].text.split('\n');
-            console.log(text);
+            
             data[i].text = text;
+
+            let { stars } = data[i];
+            if (Math.trunc(stars) !== stars) {
+              stars = `./stars/${Math.floor(stars).toString()}_5.png`;
+            } else {
+              stars = `./stars/${stars}.png`;
+            }
+            data[i].stars = stars;
+            console.log(stars);
           }
           callback(null, data);
         } // it will print your collection data
