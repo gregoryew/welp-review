@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import {Container} from 'reactstrap';
 import ReviewList from './ReviewList.jsx';
 
 const queryString = require('query-string');
-
 
 class App extends React.Component {
   constructor(props) {
