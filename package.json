@@ -12,14 +12,19 @@
   "dependencies": {
     "babel": "^6.23.0",
     "body-parser": "^1.18.2",
+    "bootstrap": "^4.0.0-alpha.6",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
     "mongo": "^0.1.0",
     "mongoose": "^5.0.14",
     "query-string": "^6.0.0",
+    "react": "^16.3.1",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-addons-transition-group": "^15.6.2",
+    "react-dom": "^16.3.1",
     "react-query-params": "^1.0.7",
-    "webpack": "^4.5.0",
-    "bootstrap": "^4.0.0-alpha.6"
+    "reactstrap": "^5.0.0",
+    "webpack": "^4.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -32,8 +37,6 @@
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
     "webpack-cli": "^2.0.14"
   },
   "version": "1.0.0",

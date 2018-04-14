@@ -1,23 +1,27 @@
 const express = require('express');
-const bodyParser = require("body-parser");
+const bodyParser = require('body-parser');
 const db = require('../db/index.js');
-let app = express();
+const path = require('path');
 
-var jsonParser = bodyParser.json();
 
-app.use(express.static(__dirname + '/../public'));
+const app = express();
+
+const jsonParser = bodyParser.json();
+
+app.use(express.static(path.join(__dirname, '/../public')));
 
 app.use(jsonParser);
 
-app.get('/welp/review/:id', function (req, res) {
-  db.retrieve(req.params.id, function(err, reviews) {
-    if (err) {res.sendStatus(500)}
-    else {res.json(reviews)};
+app.get('/api/review/:id', (req, res) => {
+  db.retrieve(req.params.id, (err, reviews) => {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.json(reviews);
+    }
   });
 });
 
-let port = process.env.PORT || 3004;
+const port = process.env.PORT || 3004;
 
-app.listen(port, function() {
-  console.log(`listening on port ${port}`);
-});
+app.listen(port, () => console.log(`listening on port ${port}`));
