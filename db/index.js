@@ -11,6 +11,11 @@ const retrieve = (id, callback) => {
         if (err2) {
           callback(err2, null);
         } else {
+          for (let i = 0; i < data.length; i += 1) {
+            let text = data[i].text.split('\n');
+            console.log(text);
+            data[i].text = text;
+          }
           callback(null, data);
         } // it will print your collection data
       });
