@@ -1,10 +1,11 @@
 import React from 'react';
+import moment from 'moment';
 import VoteButton from './VoteButton.jsx';
 
 const ReviewItem = props => (
   <li className="review-wrapper">
     <div className="review-content">
-      <img src={props.review.stars} alt="" /> &nbsp; {props.review.date}
+      <img src={props.review.stars} alt="" /> &nbsp; {moment(props.review.date).format('M/D/YYYY')}
       <br /><br />
       {props.review.text.map((line, index) => <Line line={line} key={index} />)}
     </div>

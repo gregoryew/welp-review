@@ -7,7 +7,7 @@ const retrieve = (id, callback) => {
   connection.on('error', console.error.bind(console, 'connection error:'));
   connection.once('open', () => {
     connection.db.collection('reviews', (err, collection) => {
-      collection.find({ 'business_id._id': Number.parseInt(id, 10) }).toArray((err2, data) => {
+      collection.find({ 'business_id._id': Number.parseInt(id, 10) }).sort({ date: -1 }).toArray((err2, data) => {
         if (err2) {
           callback(err2, null);
         } else {
