@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
 import VoteButton from './VoteButton.jsx';
 
 const ReviewItem = props => (

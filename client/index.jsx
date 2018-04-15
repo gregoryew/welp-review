@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import {Container} from 'reactstrap';
+import {Container,Row} from 'reactstrap';
 import ReviewList from './ReviewList.jsx';
+import TopReviewBar from './TopReviewBar.jsx';
 
 const queryString = require('query-string');
 
@@ -12,6 +13,7 @@ class App extends React.Component {
     this.props = props;
     this.state = {
       reviews: [],
+      name: '',
     };
   }
 
@@ -21,20 +23,19 @@ class App extends React.Component {
     $.ajax({
       url: `/api/review/${parsed.restaurant_id}`,
       dataType: 'json',
-      success: data => context.setState({ reviews: data }),
+      success: data => context.setState({ reviews: data, name: data[0].business_id.name }),
       type: 'GET',
     });
   }
 
   render() {
     return (
-      <div>
-        <h1>Reviews</h1>
-        <ReviewList reviews={this.state.reviews} />
-      </div>
+      <Container>
+        <Row><TopReviewBar name={this.state.name} /></Row>
+        <Row><ReviewList reviews={this.state.reviews} /></Row>
+      </Container>
     );
   }
 }
-
 
 ReactDOM.render(<App />, document.getElementById('app'));
