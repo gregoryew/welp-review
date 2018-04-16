@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container,Row,Col} from 'reactstrap';
+import DropDown from './dropdown.jsx';
 
 const TopReviewBar = props => (
   <div className="section-header section-header--no-spacing">
@@ -53,102 +54,10 @@ const TopReviewBar = props => (
             </div>
           </div>
           <div className="arrange_unit u-nowrap">
-            <div className="feed_sort js-review-feed-sort">
-              <div className="dropdown js-dropdown dropdown--tab dropdown--arrow dropdown--hover dropdown--restricted" data-component-bound="true">
-                <div className="dropdown_toggle js-dropdown-toggle" aria-haspopup="true" role="button" tabIndex="-1">
-                  <span className="dropdown_toggle-action" data-dropdown-prefix="Sort by">
-                    <span className="dropdown_prefix">
-                    Sort by
-                    </span>
-                    <span className="dropdown_toggle-text js-dropdown-toggle-text" data-dropdown-initial-text="Yelp Sort">Yelp Sort</span>
-                    <span aria-hidden="true" style={{ width: 14, height: 14 }} className="icon icon--14-triangle-down icon--size-14 icon--currentColor u-triangle-direction-down dropdown_arrow">
-                      <svg className="icon_svg">
-                        <svg id="14x14_triangle_down" height="100%" viewBox="0 0 14 14" width="100%">
-                          <path d="M7 9L3.5 5h7L7 9z" />
-                        </svg>
-                      </svg>
-                    </span>
-                  </span>
-                  <div className="dropdown_menu-container">
-                    <div className="dropdown_menu js-dropdown-menu">
-                      <div className="dropdown_menu-inner">
-                        <ul className="dropdown_menu-group" role="menu" aria-hidden="false">
-                          <li className="dropdown_item" role="presentation">
-                            <a className="tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown is-selected" data-review-feed-label="Yelp Sort" data-sort="relevance" href="https://www.yelp.com/biz/zareens-mountain-view-3?sort_by=relevance_desc&amp;start=0">
-                              <span className="tab-link_label" title="Yelp Sort">Yelp Sort</span>
-                            </a>
-                          </li>
-                          <li className="dropdown_item" role="presentation">
-                            <a className="tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown" data-order_by="desc" data-review-feed-label="Newest First" data-sort="date" href="https://www.yelp.com/biz/zareens-mountain-view-3?sort_by=date_desc&amp;start=0">
-                              <span className="tab-link_label" title="Newest First">Newest First</span>
-                            </a>
-                          </li>
-                          <li className="dropdown_item" role="presentation">
-                            <a className="tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown" data-order_by="asc" data-review-feed-label="Oldest First" data-sort="date" href="https://www.yelp.com/biz/zareens-mountain-view-3?sort_by=date_asc&amp;start=0">
-                              <span className="tab-link_label" title="Oldest First">Oldest First</span>
-                            </a>
-                          </li>
-                          <li className="dropdown_item" role="presentation">
-                            <a className="tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown" data-order_by="desc" data-review-feed-label="Highest Rated" data-sort="rating" href="https://www.yelp.com/biz/zareens-mountain-view-3?sort_by=rating_desc&amp;start=0">
-                              <span className="tab-link_label" title="Highest Rated">Highest Rated</span>
-                            </a>
-                          </li>
-                          <li className="dropdown_item" role="presentation">
-                            <a className="tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown" data-order_by="asc" data-review-feed-label="Lowest Rated" data-sort="rating" href="https://www.yelp.com/biz/zareens-mountain-view-3?sort_by=rating_asc&amp;start=0">
-                              <span className="tab-link_label" title="Lowest Rated">Lowest Rated</span>
-                            </a>
-                          </li>
-                          <li className="dropdown_item" role="presentation">
-                            <a className="tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown" data-review-feed-label="Elites" data-sort="elites" href="https://www.yelp.com/biz/zareens-mountain-view-3?sort_by=elites_desc&amp;start=0">
-                              <span className="tab-link_label" title="Elites">Elites</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="arrange_unit u-nowrap feed_language js-review-feed-language dropdown--right">
-              <div className="tab-nav-container">
-                <ul className="tab-nav js-tab-nav" data-component-bound="true">      
-                  <li className="tab-nav_item tab-nav_item--last">
-                    <div className="dropdown js-dropdown dropdown--tab dropdown--arrow dropdown--hover dropdown--restricted" data-component-bound="true">
-                      <div className="dropdown_toggle js-dropdown-toggle" aria-haspopup="true" role="button" tabindex="-1">
-                        <span className="dropdown_toggle-action" data-dropdown-prefix="Language">
-                          <span className="dropdown_prefix">
-                          Language
-                          </span>
-                          <span className="dropdown_toggle-text js-dropdown-toggle-text" data-dropdown-initial-text="English (1246)">English (1246)</span>
-                          <span aria-hidden="true" style={{ width: 14, height: 14 }} className="icon icon--14-triangle-down icon--size-14 icon--currentColor u-triangle-direction-down dropdown_arrow">
-                            <svg className="icon_svg">
-                              <svg id="14x14_triangle_down" height="100%" viewBox="0 0 14 14" width="100%">
-                                <path d="M7 9L3.5 5h7L7 9z" />
-                              </svg>
-                            </svg>
-                          </span>
-                        </span>
-                      </div>
-                      <div className="dropdown_menu-container">
-                        <div className="dropdown_menu js-dropdown-menu">
-                          <div className="dropdown_menu-inner">
-                            <ul className="dropdown_menu-group" role="menu" aria-hidden="false">
-                              <li className="dropdown_item" role="presentation">
-                                <span className="tab-link tab-link--dropdown is-selected" data-lang="en">
-                                  <span className="tab-link_label" title="English">English</span>
-                                  <span className="tab-link_count" title="(1246)">(1246)</span>
-                                </span>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <DropDown label="Sort by: " menuItems={['Yelp Sort', 'Newest First', 'Oldest First', 'Highest Rated', 'Lowest Rated', 'Elites']} />
+          </div>
+          <div className="arrange_unit u-nowrap">
+            <DropDown label="Language: " menuItems={['English 12345']} />
           </div>
         </div>
       </div>
