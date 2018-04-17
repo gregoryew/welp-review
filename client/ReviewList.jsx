@@ -4,7 +4,7 @@ import ReviewItem from './ReviewItem.jsx';
 const ReviewList = props => (
   <div>
     <ul>
-      {props.reviews.map(review => <ReviewItem review={review} key={review.id} />)}
+      {props.reviews.map(review => <ReviewItem review={review} click={props.click} key={review.id} />)}
     </ul>
   </div>
 );

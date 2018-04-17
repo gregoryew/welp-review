@@ -15,9 +15,9 @@ const ReviewItem = props => (
           1 person voted for this review
         </p>
         <ul>
-          <VoteButton title="useful" imageUrl="./useful.png" count={props.review.useful} />&nbsp;
-          <VoteButton title="funny" imageUrl="./funny.png" count={props.review.funny} />&nbsp;
-          <VoteButton title="cool" imageUrl="./cool.png" count={props.review.cool} />
+          <VoteButton click={props.click} reviewId={props.review.review_id} title="useful" imageUrl="./useful.png" count={props.review.useful} />&nbsp;
+          <VoteButton click={props.click} reviewId={props.review.review_id} title="funny" imageUrl="./funny.png" count={props.review.funny} />&nbsp;
+          <VoteButton click={props.click} reviewId={props.review.review_id} title="cool" imageUrl="./cool.png" count={props.review.cool} />
         </ul>
       </div>
     </div>

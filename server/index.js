@@ -11,6 +11,17 @@ app.use(express.static(path.join(__dirname, '/../public')));
 
 app.use(jsonParser);
 
+app.get('/api/review/votes/:reviewid/:button', (req, res) => {
+  console.log(req.params.reviewid, req.params.button);
+  db.update(req.params.reviewid, req.params.button, (err) => {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(200);
+    }
+  });
+});
+
 function retrieve(id, sort, page, keyword = '', req, res) {
   db.retrieve(id, sort, page, keyword, (err, reviews) => {
     if (err) {

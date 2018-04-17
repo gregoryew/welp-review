@@ -13,6 +13,7 @@ class App extends React.Component {
     this.props = props;
     this.search = this.search.bind(this);
     this.sort = this.sort.bind(this);
+    this.increaseVote = this.increaseVote.bind(this);
     this.state = {
       reviews: [],
       restaurantId: 0,
@@ -59,15 +60,26 @@ class App extends React.Component {
   sort(option) {
     this.setState({
       sort: option,
-    })
+    });
     this.retrieveReviews(undefined, option, undefined);
+  }
+
+  increaseVote(reviewId, whichButton) {
+    alert(reviewId);
+    alert(whichButton);
+    $.ajax({
+      url : `/api/review/votes/${reviewId}/${whichButton}/`,
+      error: (err) => {alert(err)},
+      success: (data) => {alert('success' + data)},
+      type : 'GET',
+    });
   }
 
   render() {
     return (
       <Container>
         <Row><TopReviewBar name={this.state.name} search={this.search} sort={this.sort} /></Row>
-        <Row><ReviewList reviews={this.state.reviews} /></Row>
+        <Row><ReviewList reviews={this.state.reviews} click={this.increaseVote} /></Row>
       </Container>
     );
   }

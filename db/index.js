@@ -6,8 +6,7 @@ const retrieve = (id, sort, page, keyword, callback) => {
 
   connection.on('error', console.error.bind(console, 'connection error:'));
   connection.once('open', () => {
-    connection.db.collection('reviews', (err, collection) => {
-      
+    connection.db.collection('reviews', (err, collection) => {    
       let criteria = {};
       if (keyword !== '') {
         criteria = { 'business_id._id': Number.parseInt(id, 10), text: new RegExp(keyword, 'i') };
@@ -39,6 +38,29 @@ const retrieve = (id, sort, page, keyword, callback) => {
       });
     });
   });
-}
+};
+
+const update = (reviewId, voteId, callback) => {
+  mongoose.connect('mongodb://localhost/test');
+  const { connection } = mongoose;
+
+  const columnObj = JSON.parse(`{"${voteId}": 1}`);
+
+  connection.on('error', console.error.bind(console, 'connection error:'));
+  connection.once('open', () => {
+    connection.db.collection('reviews', (err, collection) => {
+      collection.findOneAndUpdate({ review_id: reviewId },
+        { $inc: columnObj },
+        (err2, review) => {
+          if (err2) {
+            callback(err2, null);
+          } else {
+            callback(null, review);
+          }
+        })
+      });
+    })
+};
 
 module.exports.retrieve = retrieve;
+module.exports.update = update;
