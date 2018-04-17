@@ -7,7 +7,7 @@ const ReviewItem = props => (
     <div className="review-content">
       <img src={props.review.stars} alt="" /> &nbsp; {moment(props.review.date).format('M/D/YYYY')}
       <br /><br />
-      {props.review.text.map((line, index) => <Line line={line} key={index} />)}
+      {props.review.text.map((paragraph, index) => <Paragraph paragraph={paragraph} key={index} />)}
     </div>
     <div className="review-footer clearfix">
       <div className="rateReview voting-feedback">
@@ -25,9 +25,9 @@ const ReviewItem = props => (
   </li>
 );
 
-const Line = props => (
+const Paragraph = props => (
   <p>
-    {props.line}
+    {props.paragraph}
   </p>
 );
 

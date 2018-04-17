@@ -11,27 +11,62 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
+    this.search = this.search.bind(this);
+    this.sort = this.sort.bind(this);
     this.state = {
       reviews: [],
+      restaurantId: 0,
       name: '',
+      sort: 1,
+      page: 0,
+      keyword: '',
     };
   }
 
   componentDidMount() {
+    const parsed = queryString.parse(location.search);
+    this.setState({
+      restaurantId: parsed.restaurant_id,
+      page: parsed.page,
+      sort: parsed.sort,
+    });
+    this.retrieveReviews(parsed.restaurant_id);
+  }
+
+  retrieveReviews(id, sort, page, keyword = '') {
     const context = this;
     const parsed = queryString.parse(location.search);
+    if (id === undefined) { id = this.state.restaurantId; }
+    if (sort === undefined) { sort = this.state.sort; }
+    if (page === undefined) { page = this.state.page; }
+    let urlString = `/api/review/${id}/${sort}/${page}`;
+    if (keyword !== '') { urlString += `\\${keyword}`; }
     $.ajax({
-      url: `/api/review/${parsed.restaurant_id}`,
+      url: urlString,
       dataType: 'json',
-      success: data => context.setState({ reviews: data, name: data[0].business_id.name }),
+      success: data => context.setState({
+        reviews: data,
+        name: data[0].business_id.name,
+      }),
       type: 'GET',
     });
+  }
+
+  search(keyword) {
+    this.retrieveReviews(undefined, undefined, undefined, keyword);
+  }
+
+  sort(option) {
+    this.setState({
+      sort: option,
+    })
+    this.retrieveReviews(undefined, option, undefined);
   }
 
   render() {
     return (
       <Container>
-        <Row><TopReviewBar name={this.state.name} /></Row>
+        <Row><TopReviewBar name={this.state.name} search={this.search} sort={this.sort} /></Row>
         <Row><ReviewList reviews={this.state.reviews} /></Row>
       </Container>
     );

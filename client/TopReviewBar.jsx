@@ -1,6 +1,6 @@
 import React from 'react';
-import {Container,Row,Col} from 'reactstrap';
 import DropDown from './dropdown.jsx';
+import SearchBar from './SearchBar.jsx';
 
 const TopReviewBar = props => (
   <div className="section-header section-header--no-spacing">
@@ -32,32 +32,13 @@ const TopReviewBar = props => (
       <div className="section-header_block u-space-0">
         <div className="arrange arrange--middle">
           <div className="arrange_unit arrange_unit--fill feed_search">
-            <div className="section-header_search u-space-r5">
-              <form className="yform yform--continuous arrange" name="q" action="https://www.yelp.com/biz/zareens-mountain-view-3" method="GET">
-                <div className="arrange_unit arrange_unit--fill">
-                  <input type="text" placeholder="Search within the reviews" name="q" value="" autoComplete="on" width="300" />
-                </div>
-                <div className="arrange_unit">
-                  <button type="submit" value="submit" className="ybtn ybtn--primary ybtn--small">
-                    <span>
-                      <span aria-hidden="true" style={{ width: 18, height: 18 }} className="icon icon--18-search-small icon--size-18 icon--currentColor">
-                        <svg className="icon_svg">
-                          <svg id="18x18_search_small" height="100%" viewBox="0 0 18 18" width="100%">
-                            <path d="M15.913 14.224a1.324 1.324 0 0 0-.3-.466h.01l-3.378-3.376a5.49 5.49 0 0 0 .802-2.857 5.523 5.523 0 1 0-5.522 5.52 5.49 5.49 0 0 0 2.856-.8l3.37 3.368.006.003a1.364 1.364 0 0 0 .93.384C15.41 16 16 15.41 16 14.684c0-.163-.032-.317-.086-.46zM7.525 10.94a3.422 3.422 0 0 1-3.418-3.416 3.422 3.422 0 0 1 3.418-3.417 3.422 3.422 0 0 1 3.416 3.417 3.42 3.42 0 0 1-3.413 3.416z" />
-                          </svg>
-                        </svg>
-                      </span>
-                    </span>
-                  </button>
-                </div>
-              </form>
-            </div>
+            <SearchBar search={props.search} />
           </div>
           <div className="arrange_unit u-nowrap">
-            <DropDown label="Sort by: " menuItems={['Yelp Sort', 'Newest First', 'Oldest First', 'Highest Rated', 'Lowest Rated', 'Elites']} />
+            <DropDown label="Sort by: " sort={props.sort} menuItems={['Yelp Sort', 'Newest First', 'Oldest First', 'Highest Rated', 'Lowest Rated', 'Elites']} />
           </div>
           <div className="arrange_unit u-nowrap">
-            <DropDown label="Language: " menuItems={['English 12345']} />
+            <DropDown label="Language: " menuItems={['English 12345']} sort={props.sort} />
           </div>
         </div>
       </div>

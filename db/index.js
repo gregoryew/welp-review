@@ -1,19 +1,29 @@
 const mongoose = require('mongoose');
 
-const retrieve = (id, callback) => {
+const retrieve = (id, sort, page, keyword, callback) => {
   mongoose.connect('mongodb://localhost/test');
   const { connection } = mongoose;
 
   connection.on('error', console.error.bind(console, 'connection error:'));
   connection.once('open', () => {
     connection.db.collection('reviews', (err, collection) => {
-      collection.find({ 'business_id._id': Number.parseInt(id, 10) }).sort({ date: -1 }).toArray((err2, data) => {
+      
+      let criteria = {};
+      if (keyword !== '') {
+        criteria = { 'business_id._id': Number.parseInt(id, 10), text: new RegExp(keyword, 'i') };
+      } else {
+        criteria = { 'business_id._id': Number.parseInt(id, 10) };
+      }
+
+      const sortingOptions = [{}, { date: -1 }, { date: 1 }, { stars: -1 }, { stars: 1 }, {}];
+      const sortBy = sortingOptions[parseInt(sort, 10)];
+
+      collection.find(criteria).sort(sortBy).toArray((err2, data) => {
         if (err2) {
           callback(err2, null);
         } else {
           for (let i = 0; i < data.length; i += 1) {
             const text = data[i].text.split('\n');
-            
             data[i].text = text;
 
             let { stars } = data[i];
@@ -25,7 +35,7 @@ const retrieve = (id, callback) => {
             data[i].stars = stars;
           }
           callback(null, data);
-        } // it will print your collection data
+        }
       });
     });
   });

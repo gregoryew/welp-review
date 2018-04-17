@@ -3,11 +3,11 @@ import React from 'react';
 class DropDown extends React.Component {
   constructor(props) {
     super(props);
+    this.sortBy = this.sortBy.bind(this);
     this.state = {
       selectedItem: 0,
       isVisible: 'dropdown_menu js-dropdown-menu',
     };
-
   }
 
   toggleVisible(selected) {
@@ -18,12 +18,16 @@ class DropDown extends React.Component {
     }
   }
 
+  sortBy(itemIndex) {
+    this.props.sort(itemIndex);
+  }
+
   render(props) {
     return (
       <div className="feed_sort js-review-feed-sort" style={{ position: 'relative', display: 'inline-block' }}>
         <div className="dropdown js-dropdown dropdown--tab dropdown--arrow dropdown--hover dropdown--restricted is-active" data-component-bound="true">
           <div className="dropdown_toggle js-dropdown-toggle is-active" aria-haspopup="true" role="button" tabIndex="-1">
-            <a className="dropdown_toggle-action" data-dropdown-prefix="Sort by" onClick={ () => this.toggleVisible( this.state.selectedItem ) }>
+            <span className="dropdown_toggle-action" data-dropdown-prefix="Sort by" onClick={ () => {this.toggleVisible( this.state.selectedItem);}} >
               <span className="dropdown_prefix">
                 {this.props.label}
               </span>
@@ -35,7 +39,7 @@ class DropDown extends React.Component {
                   </svg>
                 </svg>
               </span>
-            </a>
+            </span>
             <div className="dropdown_menu-container" style={{ position: 'relative' }}>
               <div className={this.state.isVisible} style={{ position: 'relative' }}>
                 <div className="dropdown_menu-inner" style={{ position: 'relative' }}>
@@ -54,7 +58,7 @@ class DropDown extends React.Component {
 
 const DropDownItem = props => (
   <li className="dropdown_item, menuItem" role="presentation" style={{ position: 'relative', zIndex: 1000 }}>
-    <a className={props.itemSelected} onClick={ () => { props.context.toggleVisible( props.itemIndex )}} data-review-feed-label={props.item} data-sort="relevance">
+    <a className={props.itemSelected} onClick={ () => { props.context.toggleVisible( props.itemIndex ); props.context.sortBy( props.itemIndex ); }} data-review-feed-label={props.item} data-sort="relevance">
       <span className="tab-link_label menuItem" title="{props.item}">{props.item}</span>
     </a>
   </li>
