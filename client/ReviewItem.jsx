@@ -16,25 +16,25 @@ const ReviewItem = props => (
                 <div className="photo-box pb-60s">
                   <img src={props.review.user_id.picture} className="js-analytics-click" alt={props.review.user_id.name} width="60" />
                 </div>
-                <div className="media-story">
-                  <ul className="user-passport-status">
-                    <li className="user-display-name js-analytics-click">
-                      {props.review.user_id.name}
-                    </li>
-                    <li className="friend-count responsive-small-display-inline-block">
-                      {props.review.user_id.friends.length}&nbsp;friends
-                    </li>
-                    <li className="review-count responsive-small-display-inline-block">
-                      {props.review.user_id.review_count}&nbsp;reviews
-                    </li>
-                  </ul>
-                </div>
               </div>
+            </div>
+            <div className="media-story">
+              <ul className="user-passport-status">
+                <li className="user-display-name js-analytics-click">
+                  {props.review.user_id.name}
+                </li>
+                <li className="friend-count responsive-small-display-inline-block">
+                  {props.review.user_id.friends.length}&nbsp;friends
+                </li>
+                <li className="review-count responsive-small-display-inline-block">
+                  {props.review.user_id.review_count}&nbsp;reviews
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-      </div>
+        </div>
+        </div>
       </td>
       <td>
       <div className="review-content">
