@@ -21,6 +21,9 @@ const retrieve = (id, sort, page, keyword, callback) => {
         if (err2) {
           callback(err2, null);
         } else {
+          console.log('DATA');
+          console.log(data[0]);
+          console.log('DATA END');
           for (let i = 0; i < data.length; i += 1) {
             const text = data[i].text.split('\n');
             data[i].text = text;

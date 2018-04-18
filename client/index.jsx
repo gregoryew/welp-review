@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import {Container,Row} from 'reactstrap';
+import { Container, CardDeck, Card, Row } from 'reactstrap';
 import ReviewList from './ReviewList.jsx';
 import TopReviewBar from './TopReviewBar.jsx';
 
@@ -78,8 +78,12 @@ class App extends React.Component {
   render() {
     return (
       <Container>
-        <Row><TopReviewBar name={this.state.name} search={this.search} sort={this.sort} /></Row>
-        <Row><ReviewList reviews={this.state.reviews} click={this.increaseVote} /></Row>
+        <Row>
+          <TopReviewBar name={this.state.name} search={this.search} sort={this.sort} />
+        </Row>
+        <Row>
+          <ReviewList reviews={this.state.reviews} click={this.increaseVote} />
+        </Row>
       </Container>
     );
   }

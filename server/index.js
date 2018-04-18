@@ -12,7 +12,6 @@ app.use(express.static(path.join(__dirname, '/../public')));
 app.use(jsonParser);
 
 app.get('/api/review/votes/:reviewid/:button', (req, res) => {
-  console.log(req.params.reviewid, req.params.button);
   db.update(req.params.reviewid, req.params.button, (err) => {
     if (err) {
       res.sendStatus(500);
