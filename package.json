@@ -7,14 +7,17 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "test": "jest"
   },
   "dependencies": {
     "babel": "^6.23.0",
     "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0-alpha.6",
+    "chai": "^4.1.2",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
+    "mocha": "^5.1.1",
     "moment": "^2.22.1",
     "mongo": "^0.1.0",
     "mongoose": "^5.0.14",
@@ -25,19 +28,25 @@
     "react-dom": "^16.3.1",
     "react-query-params": "^1.0.7",
     "reactstrap": "^5.0.0",
+    "request": "^2.85.0",
     "webpack": "^4.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "jest": "^22.4.3",
+    "react-test-render": "^1.1.1",
     "webpack-cli": "^2.0.14"
   },
   "version": "1.0.0",
@@ -48,6 +57,19 @@
   },
   "bugs": {
     "url": "https://github.com/gregoryew/welp-review/issues"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          "env",
+          "react"
+        ]
+      }
+    }
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./spec/setupTests.js"
   },
   "homepage": "https://github.com/gregoryew/welp-review#readme"
 }
