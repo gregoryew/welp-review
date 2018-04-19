@@ -8,7 +8,9 @@
   },
   "scripts": {
     "build": "webpack",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "babel": "^6.23.0",
@@ -29,6 +31,7 @@
     "react-query-params": "^1.0.7",
     "reactstrap": "^5.0.0",
     "request": "^2.85.0",
+    "uncss": "^0.16.2",
     "webpack": "^4.5.0"
   },
   "devDependencies": {
@@ -39,12 +42,14 @@
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.3",
     "react-test-render": "^1.1.1",
     "webpack-cli": "^2.0.14"
@@ -69,7 +74,13 @@
     }
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./spec/setupTests.js"
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupTestFrameworkScriptFile": "./spec/setupTests.js",
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    }
   },
   "homepage": "https://github.com/gregoryew/welp-review#readme"
 }

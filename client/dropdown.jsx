@@ -24,7 +24,7 @@ class DropDown extends React.Component {
 
   render(props) {
     return (
-      <div className="feed_sort js-review-feed-sort" style={{ position: 'relative', display: 'inline-block' }}>
+      <div className="feed_sort js-review-feed-sort" >
         <div className="dropdown js-dropdown dropdown--tab dropdown--arrow dropdown--hover dropdown--restricted is-active" data-component-bound="true">
           <div className="dropdown_toggle js-dropdown-toggle is-active" aria-haspopup="true" role="button" tabIndex="-1">
             <span className="dropdown_toggle-action" data-dropdown-prefix="Sort by" onClick={ () => {this.toggleVisible( this.state.selectedItem);}} >
@@ -40,10 +40,10 @@ class DropDown extends React.Component {
                 </svg>
               </span>
             </span>
-            <div className="dropdown_menu-container" style={{ position: 'relative' }}>
-              <div className={this.state.isVisible} style={{ position: 'relative' }}>
-                <div className="dropdown_menu-inner" style={{ position: 'relative' }}>
-                  <ul className="dropdown_menu-group" role="menu" aria-hidden="false" style={{ position: 'relative' }}>
+            <div className="dropdown_menu-container">
+              <div className={this.state.isVisible}>
+                <div className="dropdown_menu-inner">
+                  <ul className="dropdown_menu-group" role="menu" aria-hidden="false">
                     {this.props.menuItems.map( (item, index) => <DropDownItem item={item} itemIndex={index} context={this} itemSelected={(index === this.state.selectedItem) ? 'tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown is-selected' : 'tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown'} />)}
                   </ul>
                 </div>
@@ -57,7 +57,7 @@ class DropDown extends React.Component {
 }
 
 const DropDownItem = props => (
-  <li className="dropdown_item, menuItem" role="presentation" style={{ position: 'relative', zIndex: 1000 }}>
+  <li className="dropdown_item, menuItem" role="presentation" >
     <a className={props.itemSelected} onClick={ () => { props.context.toggleVisible( props.itemIndex ); props.context.sortBy( props.itemIndex ); }} data-review-feed-label={props.item} data-sort="relevance">
       <span className="tab-link_label menuItem" title="{props.item}">{props.item}</span>
     </a>

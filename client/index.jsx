@@ -77,14 +77,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container>
-        <Row>
+      <div>
+        <div>
           <TopReviewBar name={this.state.name} search={this.search} sort={this.sort} />
-        </Row>
-        <Row>
+        </div>
+        <div>
           <ReviewList reviews={this.state.reviews} click={this.increaseVote} />
-        </Row>
-      </Container>
+        </div>
+      </div>
     );
   }
 }
