@@ -53,7 +53,7 @@ describe('Database Tests', () => {
   test('Should not retrieve reviews searching for keyword employees', (done) => {
     db.retrieve(46, 0, 0, 'employees', (err, data) => {
       expect(data.length === 0).toBe(true);
-      done();
+      done();   
     });
   });
 
