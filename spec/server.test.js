@@ -1,4 +1,4 @@
-import exampleReview from './data/exampleReview.js';
+import EXAMPLE_REVIEW from './data/exampleReview.js';
 import reviewdateasc from './data/exampleReviewSortedDateAsc.js';
 import exampleReviewDateDesc from './data/exampleReviewSortedDateDesc.js';
 import exReviewSortedRateAsc from './data/exampleReviewSortedRateAsc.js';
@@ -36,7 +36,7 @@ describe('Testing server', () => {
       uri: uri + '/api/review/2/0/0',
     }, (err, res, body) => {
       expect(err).toBe(null);
-      expect(res.statusCode).toBe(200);
+      let exampleReview = JSON.parse(EXAMPLE_REVIEW);
       let actualReview = JSON.parse(body);
       expect(identical(exampleReview, actualReview)).toBe(true);
       done();
