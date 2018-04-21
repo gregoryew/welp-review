@@ -11,12 +11,12 @@ app.use(express.static(path.join(__dirname, '/../public')));
 
 app.use(jsonParser);
 
-app.get('/api/review/votes/:reviewid/:button', (req, res) => {
-  db.update(req.params.reviewid, req.params.button, (err) => {
+app.get('/api/review/votes/:reviewid/:button/:direction/:userID', (req, res) => {
+  db.update(req.params.reviewid, req.params.button, req.params.direction, req.params.userID, (err, review) => {
     if (err) {
       res.sendStatus(500);
     } else {
-      res.sendStatus(200);
+      res.json(review);
     }
   });
 });

@@ -40,26 +40,56 @@ const retrieve = (id, sort, page, keyword, callback) => {
   });
 };
 
-const update = (reviewId, voteId, callback) => {
+const update = (reviewId, voteId, direction, userID, callback) => {
   mongoose.connect('mongodb://localhost/test');
   const { connection } = mongoose;
 
-  const columnObj = JSON.parse(`{"${voteId}": 1}`);
+  let columnObj = {};
+  let columnElm = {};
+  if (direction === 'up') {
+    columnObj = JSON.parse(`{"${voteId}": 1}`);
+    columnElm = JSON.parse(`{"${voteId}_votes": "${userID}"}`);
+    let findCriteria = {};
+    if (voteId === 'cool') {
+      findCriteria = { review_id: reviewId, $or: [{ cool_votes: { $nin: [userID] } }, { cool_votes: null }] };
+    } else if (voteId === 'useful') {
+      findCriteria = { review_id: reviewId, $or: [{ useful_votes: { $nin: [userID] } }, { useful_votes: null }] };
+    } else if (voteId === 'funny') {
+      findCriteria = { review_id: reviewId, $or: [{ funny_votes: { $nin: [userID] } }, { funny_votes: null }] };
+    }
+    connection.on('error', console.error.bind(console, 'connection error:'));
+    connection.once('open', () => {
+      connection.db.collection('reviews', (err, collection) => {
+        collection.update(findCriteria,
+          { $inc: columnObj, $push: columnElm }, true,
+          (err2, review) => {
+            if (err2) {
+              callback(err2, null);
+            } else {
+              callback(null, review);
+            }
+          })
+        });
+      })
+  } else {
+    columnObj = JSON.parse(`{"${voteId}": -1}`);    
+    columnElm = JSON.parse(`{"${voteId}_votes": "${userID}"}`);
+    connection.on('error', console.error.bind(console, 'connection error:'));
+    connection.once('open', () => {
+      connection.db.collection('reviews', (err, collection) => {
+        collection.update({ review_id: reviewId },
+          { $inc: columnObj, $pull: columnElm }, true,
+          (err2, review) => {
+            if (err2) {
+              callback(err2, null);
+            } else {
+              callback(null, review);
+            }
+          })
+        });
+      })
+  }
 
-  connection.on('error', console.error.bind(console, 'connection error:'));
-  connection.once('open', () => {
-    connection.db.collection('reviews', (err, collection) => {
-      collection.findOneAndUpdate({ review_id: reviewId },
-        { $inc: columnObj },
-        (err2, review) => {
-          if (err2) {
-            callback(err2, null);
-          } else {
-            callback(null, review);
-          }
-        })
-      });
-    })
 };
 
 module.exports.retrieve = retrieve;

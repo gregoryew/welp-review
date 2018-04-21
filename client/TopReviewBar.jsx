@@ -34,7 +34,7 @@ const TopReviewBar = props => (
           <div className="arrange_unit arrange_unit--fill feed_search">
             <SearchBar search={props.search} />
           </div>
-          <div className="arrange_unit u-nowrap">
+          <div className="arrange_unit u-nowrap" style={{ position: 'relative', display: 'block' }}>
             <DropDown label="Sort by: " sort={props.sort} menuItems={['Yelp Sort', 'Newest First', 'Oldest First', 'Highest Rated', 'Lowest Rated', 'Elites']} />
           </div>
           <div className="arrange_unit u-nowrap">

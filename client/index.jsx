@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import { Container, CardDeck, Card, Row } from 'reactstrap';
+import $ from 'jquery';
 import ReviewList from './ReviewList.jsx';
 import TopReviewBar from './TopReviewBar.jsx';
+import { CookiesProvider } from 'react-cookie';
 
 const queryString = require('query-string');
 
@@ -13,7 +14,7 @@ class App extends React.Component {
     this.props = props;
     this.search = this.search.bind(this);
     this.sort = this.sort.bind(this);
-    this.increaseVote = this.increaseVote.bind(this);
+    //this.increaseVote = this.increaseVote.bind(this);
     this.state = {
       reviews: [],
       restaurantId: 0,
@@ -64,27 +65,18 @@ class App extends React.Component {
     this.retrieveReviews(undefined, option, undefined);
   }
 
-  increaseVote(reviewId, whichButton) {
-    alert(reviewId);
-    alert(whichButton);
-    $.ajax({
-      url : `/api/review/votes/${reviewId}/${whichButton}/`,
-      error: (err) => {alert(err)},
-      success: (data) => {alert('success' + data)},
-      type : 'GET',
-    });
-  }
-
   render() {
     return (
-      <div>
+      <CookiesProvider>
         <div>
-          <TopReviewBar name={this.state.name} search={this.search} sort={this.sort} />
+          <div>
+            <TopReviewBar name={this.state.name} search={this.search} sort={this.sort} />
+          </div>
+          <div>
+            <ReviewList reviews={this.state.reviews} />
+          </div>
         </div>
-        <div>
-          <ReviewList reviews={this.state.reviews} click={this.increaseVote} />
-        </div>
-      </div>
+      </CookiesProvider>
     );
   }
 }
