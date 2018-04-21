@@ -2,10 +2,11 @@ import React from 'react';
 import ReviewItem from './ReviewItem.jsx';
 
 const ReviewList = props => (
+  
   <div>
-    <div>
-      {props.reviews.map(review => <ReviewItem review={review} />)}
-    </div>
+    <ul>
+      {props.reviews.map(review => <ReviewItem review={review} key={review.id} />)}
+    </ul>
   </div>
 );
 
