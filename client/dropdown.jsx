@@ -44,7 +44,7 @@ class DropDown extends React.Component {
               <div className={this.state.isVisible} style={{ position: 'absolute'}}>
                 <div className="dropdown_menu-inner">
                   <ul className="dropdown_menu-group" role="menu" aria-hidden="false">
-                    {this.props.menuItems.map( (item, index) => <DropDownItem item={item} itemIndex={index} context={this} itemSelected={(index === this.state.selectedItem) ? 'tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown is-selected' : 'tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown'} />)}
+                    {this.props.menuItems.map( (item, index) => <DropDownItem item={item} key={index} itemIndex={index} context={this} itemSelected={(index === this.state.selectedItem) ? 'tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown is-selected' : 'tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown'} />)}
                   </ul>
                 </div>
               </div>

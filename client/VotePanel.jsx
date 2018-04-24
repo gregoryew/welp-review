@@ -26,25 +26,25 @@ class VotePanel extends React.Component {
     let votes = this.uniqueUnion(this.props.review.cool_votes, this.uniqueUnion(this.props.review.useful_votes, this.props.review.funny_votes)).length;
 
     let coolClassStr = 'ybtn ybtn--small';
-    let coolImgStr = 'cool.png';
+    let coolImgStr = 'https://s3.amazonaws.com/hrsf93welpusers/cool.png';
     let usefulClassStr = 'ybtn ybtn--small';
-    let usefulImgStr = 'useful.png';
+    let usefulImgStr = 'https://s3.amazonaws.com/hrsf93welpusers/useful.png';
     let funnyClassStr = 'ybtn ybtn--small';
-    let funnyImgStr = 'funny.png';
+    let funnyImgStr = 'https://s3.amazonaws.com/hrsf93welpusers/funny.png';
     const userVotedCool = this.didUserVoteFor(this.props.review.cool_votes, uid);
     if (userVotedCool) { 
       coolClassStr = 'ybtn ybtn--small voted';
-      coolImgStr = 'cool-white.png';
+      coolImgStr = 'https://s3.amazonaws.com/hrsf93welpusers/cool-white.png';
     }
     const userVotedFunny = this.didUserVoteFor(this.props.review.funny_votes, uid);
     if (userVotedFunny) {
       funnyClassStr = 'ybtn ybtn--small voted';
-      funnyImgStr = 'funny-white.png';
+      funnyImgStr = 'https://s3.amazonaws.com/hrsf93welpusers/funny-white.png';
     }
     const userVotedUseful = this.didUserVoteFor(this.props.review.useful_votes, uid);
     if (userVotedUseful) {
       usefulClassStr = 'ybtn ybtn--small voted';
-      usefulImgStr = 'useful-white.png';
+      usefulImgStr = 'https://s3.amazonaws.com/hrsf93welpusers/useful-white.png';
     }
 
     const voteString = this.generateVoteString(uid);
@@ -124,13 +124,13 @@ class VotePanel extends React.Component {
         const c = this.state.coolCount - 1;
         this.props.review.cool_votes = this.removeVote(this.props.review.cool_votes);
         const vs = this.generateVoteString(this.state.UserID);
-        this.setState({ voteIntro: vs, coolVote: false, coolCount: c, coolClass: 'ybtn ybtn--small', coolImg: './cool.png' });
+        this.setState({ voteIntro: vs, coolVote: false, coolCount: c, coolClass: 'ybtn ybtn--small', coolImg: 'https://s3.amazonaws.com/hrsf93welpusers/cool.png' });
       } else {
         direction = 'up';
         const c = this.state.coolCount + 1;
         this.props.review.cool_votes = this.addVote(this.props.review.cool_votes);
         const vs = this.generateVoteString(this.state.UserID);
-        this.setState({ voteIntro: vs, coolVote: true, coolCount: c, coolClass: 'ybtn ybtn--small voted', coolImg: './cool-white.png' });
+        this.setState({ voteIntro: vs, coolVote: true, coolCount: c, coolClass: 'ybtn ybtn--small voted', coolImg: 'https://s3.amazonaws.com/hrsf93welpusers/cool-white.png' });
       }
     } else if (whichButton === 'funny') {
       if (this.state.funnyVote) {
@@ -138,13 +138,13 @@ class VotePanel extends React.Component {
         const c = this.state.funnyCount - 1;
         this.props.review.funny_votes = this.removeVote(this.props.review.funny_votes);
         const vs = this.generateVoteString(this.state.UserID);
-        this.setState({ voteIntro: vs, funnyVote: false, funnyCount: c, funnyClass: 'ybtn ybtn--small', funnyImg: './funny.png' });
+        this.setState({ voteIntro: vs, funnyVote: false, funnyCount: c, funnyClass: 'ybtn ybtn--small', funnyImg: 'https://s3.amazonaws.com/hrsf93welpusers/funny.png' });
       } else {
         direction = 'up';
         const c = this.state.funnyCount + 1;
         this.props.review.funny_votes = this.addVote(this.props.review.funny_votes);
         const vs = this.generateVoteString(this.state.UserID);
-        this.setState({ voteIntro: vs, funnyVote: true, funnyCount: c, funnyClass: 'ybtn ybtn--small voted', funnyImg: './funny-white.png' });
+        this.setState({ voteIntro: vs, funnyVote: true, funnyCount: c, funnyClass: 'ybtn ybtn--small voted', funnyImg: 'https://s3.amazonaws.com/hrsf93welpusers/funny-white.png' });
       }
     } else if (whichButton === 'useful') {
       if (this.state.usefulVote) {
@@ -152,18 +152,18 @@ class VotePanel extends React.Component {
         const c = this.state.usefulCount - 1;
         this.props.review.useful_votes = this.removeVote(this.props.review.useful_votes);
         const vs = this.generateVoteString(this.state.UserID);
-        this.setState({ voteIntro: vs, usefulVote: false, usefulCount: c, usefulClass: 'ybtn ybtn--small', usefulImg: './useful.png' });
+        this.setState({ voteIntro: vs, usefulVote: false, usefulCount: c, usefulClass: 'ybtn ybtn--small', usefulImg: 'https://s3.amazonaws.com/hrsf93welpusers/useful.png' });
       } else {
         direction = 'up';
         const c = this.state.usefulCount + 1;
         this.props.review.useful_votes = this.addVote(this.props.review.useful_votes);
         const vs = this.generateVoteString(this.state.UserID);
-        this.setState({ voteIntro: vs, usefulVote: true, usefulCount: c, usefulClass: 'ybtn ybtn--small voted', usefulImg: './useful-white.png' });
+        this.setState({ voteIntro: vs, usefulVote: true, usefulCount: c, usefulClass: 'ybtn ybtn--small voted', usefulImg: 'https://s3.amazonaws.com/hrsf93welpusers/useful-white.png' });
       }
     }
 
     $.ajax({
-      url: `/api/review/votes/${reviewId}/${whichButton}/${direction}/${this.state.UserID}`,
+      url: `http://127.0.0.1:3004/api/review/votes/${reviewId}/${whichButton}/${direction}/${this.state.UserID}`,
       error: (err) => {console.log(err)},
       success: (data) => {console.log(data)},
       type: 'GET',

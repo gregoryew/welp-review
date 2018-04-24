@@ -8,13 +8,12 @@ import { CookiesProvider } from 'react-cookie';
 
 const queryString = require('query-string');
 
-class App extends React.Component {
+class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
     this.search = this.search.bind(this);
     this.sort = this.sort.bind(this);
-    //this.increaseVote = this.increaseVote.bind(this);
     this.state = {
       reviews: [],
       restaurantId: 0,
@@ -26,13 +25,24 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    // If the querystring has no paramaters then check the props
+    // This is done for testing purposes to interface with jest and snapshots. 
     const parsed = queryString.parse(location.search);
-    this.setState({
-      restaurantId: parsed.restaurant_id,
-      page: parsed.page,
-      sort: parsed.sort,
-    });
-    this.retrieveReviews(parsed.restaurant_id);
+    if (Object.keys(parsed).length !== 0) {
+      this.setState({
+        restaurantId: parsed.id,
+        page: parsed.page,
+        sort: parsed.sort,
+      });
+      this.retrieveReviews(parsed.id);
+    } else {
+      this.setState({
+        restaurantId: this.props.restaurantId,
+        page: this.props.page,
+        sort: this.props.sort,
+        reviews: JSON.parse(this.props.data),
+      });
+    }
   }
 
   retrieveReviews(id, sort, page, keyword = '') {
@@ -41,15 +51,17 @@ class App extends React.Component {
     if (id === undefined) { id = this.state.restaurantId; }
     if (sort === undefined) { sort = this.state.sort; }
     if (page === undefined) { page = this.state.page; }
-    let urlString = `/api/review/${id}/${sort}/${page}`;
+    let urlString = `http://127.0.0.1:3004/api/review/${id}/${sort}/${page}`;
     if (keyword !== '') { urlString += `\\${keyword}`; }
     $.ajax({
       url: urlString,
       dataType: 'json',
-      success: data => context.setState({
-        reviews: data,
-        name: data[0].business_id.name,
-      }),
+      success: (data) => {
+        context.setState({
+          reviews: data,
+          name: data[0].business_id.name,
+        });
+      },
       type: 'GET',
     });
   }
@@ -81,4 +93,6 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Reviews />, document.getElementById('Reviews'));
+
+export default Reviews;

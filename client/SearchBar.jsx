@@ -4,7 +4,7 @@ import $ from 'jquery';
 const SearchBar = props => (
   <div className="section-header_search u-space-r5">
     <div className="arrange_unit arrange_unit--fill">
-      <input id="search" type="text" placeholder="Search within the reviews" name="q" automComplete="on" style={{ height: 25, width: 270 }} onChange={(evt) => { console.log(evt.target.value); }} />
+      <input id="search" type="text" placeholder="Search within the reviews" name="q" autoComplete="on" style={{ height: 25, width: 270 }} onChange={(evt) => { console.log(evt.target.value); }} />
     </div>
     <div className="arrange_unit">
       <button className="ybtn ybtn--primary ybtn--small" onClick={() => { props.search($('#search').val()); }}>

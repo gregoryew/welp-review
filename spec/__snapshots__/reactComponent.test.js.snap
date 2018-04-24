@@ -1,0 +1,747 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders the app correctly renders correctly 1`] = `
+<div>
+  <div>
+    <div
+      className="section-header section-header--no-spacing"
+    >
+      <div>
+        <h2>
+          Recommended Reviews for 
+          <b>
+            
+          </b>
+        </h2>
+      </div>
+      <div
+        className="feed_trust-banner"
+      >
+        <div
+          className="arrange arrange--12 arrange--middle"
+        >
+          <div
+            className="arrange_unit"
+          >
+            <span
+              aria-hidden="true"
+              className="icon icon--24-yelp icon--size-24"
+              style={
+                Object {
+                  "fill": "red",
+                  "height": 24,
+                  "width": 24,
+                }
+              }
+            >
+              <svg
+                className="icon_svg"
+              >
+                <svg
+                  height="100%"
+                  id="24x24_yelp"
+                  viewBox="0 0 24 24"
+                  width="100%"
+                >
+                  <path
+                    d="M18.803 12.49l-4.162 1.194c-.8.23-1.45-.666-.98-1.357l2.42-3.59a.893.893 0 0 1 1.33-.172 7.66 7.66 0 0 1 1.97 2.71.894.894 0 0 1-.572 1.215zm-4.187 2.627l4.117 1.338a.893.893 0 0 1 .53 1.233 7.762 7.762 0 0 1-2.058 2.64.894.894 0 0 1-1.326-.216l-2.3-3.674c-.44-.706.24-1.578 1.03-1.32zm-3.996-3.64l-4.07-7.05a.893.893 0 0 1 .388-1.25A12.475 12.475 0 0 1 11.324 2c.518-.04.96.37.96.89v8.138c0 .913-1.208 1.236-1.664.446zm-.714 3.475L5.704 16a.894.894 0 0 1-1.103-.767 7.68 7.68 0 0 1 .358-3.33.892.892 0 0 1 1.237-.516l3.89 1.898c.75.365.635 1.466-.173 1.667zm.738 1.23c.557-.62 1.584-.205 1.555.627l-.158 4.322c-.02.54-.51.94-1.04.85A7.76 7.76 0 0 1 7.9 20.73a.893.893 0 0 1-.156-1.333l2.897-3.22z"
+                  />
+                </svg>
+              </svg>
+            </span>
+          </div>
+          <div
+            className="arrange_unit arrange_unit--fill"
+          >
+            <span
+              className="legal-copy"
+            >
+              <b>
+                Your trust is our top concern,
+              </b>
+               so businesses cant pay to alter or remove their reviews. 
+              <a
+                href="https://www.yelp.com/advertiser_faq"
+              >
+                Learn more.
+              </a>
+            </span>
+          </div>
+          <div
+            className="arrange_unit"
+          >
+            <span
+              aria-label="Close"
+              className="dismiss-link u-text-mid js-dismiss-trust-banner"
+              role="button"
+            >
+              ×
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="feed_filters u-space-t1 u-space-b1"
+      >
+        <div
+          className="section-header_block u-space-0"
+        >
+          <div
+            className="arrange arrange--middle"
+          >
+            <div
+              className="arrange_unit arrange_unit--fill feed_search"
+            >
+              <div
+                className="section-header_search u-space-r5"
+              >
+                <div
+                  className="arrange_unit arrange_unit--fill"
+                >
+                  <input
+                    automComplete="on"
+                    id="search"
+                    name="q"
+                    onChange={[Function]}
+                    placeholder="Search within the reviews"
+                    style={
+                      Object {
+                        "height": 25,
+                        "width": 270,
+                      }
+                    }
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="arrange_unit"
+                >
+                  <button
+                    className="ybtn ybtn--primary ybtn--small"
+                    onClick={[Function]}
+                  >
+                    <span>
+                      <span
+                        aria-hidden="true"
+                        className="icon icon--18-search-small icon--size-18 icon--currentColor"
+                        style={
+                          Object {
+                            "height": 18,
+                            "width": 18,
+                          }
+                        }
+                      >
+                        <svg
+                          className="icon_svg"
+                        >
+                          <svg
+                            height="100%"
+                            id="18x18_search_small"
+                            viewBox="0 0 18 18"
+                            width="100%"
+                          >
+                            <path
+                              d="M15.913 14.224a1.324 1.324 0 0 0-.3-.466h.01l-3.378-3.376a5.49 5.49 0 0 0 .802-2.857 5.523 5.523 0 1 0-5.522 5.52 5.49 5.49 0 0 0 2.856-.8l3.37 3.368.006.003a1.364 1.364 0 0 0 .93.384C15.41 16 16 15.41 16 14.684c0-.163-.032-.317-.086-.46zM7.525 10.94a3.422 3.422 0 0 1-3.418-3.416 3.422 3.422 0 0 1 3.418-3.417 3.422 3.422 0 0 1 3.416 3.417 3.42 3.42 0 0 1-3.413 3.416z"
+                            />
+                          </svg>
+                        </svg>
+                      </span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              className="arrange_unit u-nowrap"
+              style={
+                Object {
+                  "display": "block",
+                  "position": "relative",
+                }
+              }
+            >
+              <div
+                className="feed_sort js-review-feed-sort"
+              >
+                <div
+                  className="dropdown js-dropdown dropdown--tab dropdown--arrow dropdown--hover dropdown--restricted is-active"
+                  data-component-bound="true"
+                >
+                  <div
+                    aria-haspopup="true"
+                    className="dropdown_toggle js-dropdown-toggle is-active"
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    <span
+                      className="dropdown_toggle-action"
+                      data-dropdown-prefix="Sort by"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="dropdown_prefix"
+                      >
+                        Sort by: 
+                      </span>
+                      <span
+                        className="dropdown_toggle-text js-dropdown-toggle-text"
+                      >
+                        Yelp Sort
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="icon icon--14-triangle-down icon--size-14 icon--currentColor u-triangle-direction-down dropdown_arrow"
+                        style={
+                          Object {
+                            "height": 14,
+                            "width": 14,
+                          }
+                        }
+                      >
+                        <svg
+                          className="icon_svg"
+                        >
+                          <svg
+                            height="100%"
+                            id="14x14_triangle_down"
+                            viewBox="0 0 14 14"
+                            width="100%"
+                          >
+                            <path
+                              d="M7 9L3.5 5h7L7 9z"
+                            />
+                          </svg>
+                        </svg>
+                      </span>
+                    </span>
+                    <div
+                      className="dropdown_menu-container"
+                    >
+                      <div
+                        className="dropdown_menu js-dropdown-menu"
+                        style={
+                          Object {
+                            "position": "absolute",
+                          }
+                        }
+                      >
+                        <div
+                          className="dropdown_menu-inner"
+                        >
+                          <ul
+                            aria-hidden="false"
+                            className="dropdown_menu-group"
+                            role="menu"
+                          >
+                            <li
+                              className="dropdown_item, menuItem"
+                              role="presentation"
+                            >
+                              <a
+                                className="tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown is-selected"
+                                data-review-feed-label="Yelp Sort"
+                                data-sort="relevance"
+                                onClick={[Function]}
+                              >
+                                <span
+                                  className="tab-link_label menuItem"
+                                  title="{props.item}"
+                                >
+                                  Yelp Sort
+                                </span>
+                              </a>
+                            </li>
+                            <li
+                              className="dropdown_item, menuItem"
+                              role="presentation"
+                            >
+                              <a
+                                className="tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown"
+                                data-review-feed-label="Newest First"
+                                data-sort="relevance"
+                                onClick={[Function]}
+                              >
+                                <span
+                                  className="tab-link_label menuItem"
+                                  title="{props.item}"
+                                >
+                                  Newest First
+                                </span>
+                              </a>
+                            </li>
+                            <li
+                              className="dropdown_item, menuItem"
+                              role="presentation"
+                            >
+                              <a
+                                className="tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown"
+                                data-review-feed-label="Oldest First"
+                                data-sort="relevance"
+                                onClick={[Function]}
+                              >
+                                <span
+                                  className="tab-link_label menuItem"
+                                  title="{props.item}"
+                                >
+                                  Oldest First
+                                </span>
+                              </a>
+                            </li>
+                            <li
+                              className="dropdown_item, menuItem"
+                              role="presentation"
+                            >
+                              <a
+                                className="tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown"
+                                data-review-feed-label="Highest Rated"
+                                data-sort="relevance"
+                                onClick={[Function]}
+                              >
+                                <span
+                                  className="tab-link_label menuItem"
+                                  title="{props.item}"
+                                >
+                                  Highest Rated
+                                </span>
+                              </a>
+                            </li>
+                            <li
+                              className="dropdown_item, menuItem"
+                              role="presentation"
+                            >
+                              <a
+                                className="tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown"
+                                data-review-feed-label="Lowest Rated"
+                                data-sort="relevance"
+                                onClick={[Function]}
+                              >
+                                <span
+                                  className="tab-link_label menuItem"
+                                  title="{props.item}"
+                                >
+                                  Lowest Rated
+                                </span>
+                              </a>
+                            </li>
+                            <li
+                              className="dropdown_item, menuItem"
+                              role="presentation"
+                            >
+                              <a
+                                className="tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown"
+                                data-review-feed-label="Elites"
+                                data-sort="relevance"
+                                onClick={[Function]}
+                              >
+                                <span
+                                  className="tab-link_label menuItem"
+                                  title="{props.item}"
+                                >
+                                  Elites
+                                </span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="arrange_unit u-nowrap"
+            >
+              <div
+                className="feed_sort js-review-feed-sort"
+              >
+                <div
+                  className="dropdown js-dropdown dropdown--tab dropdown--arrow dropdown--hover dropdown--restricted is-active"
+                  data-component-bound="true"
+                >
+                  <div
+                    aria-haspopup="true"
+                    className="dropdown_toggle js-dropdown-toggle is-active"
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    <span
+                      className="dropdown_toggle-action"
+                      data-dropdown-prefix="Sort by"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="dropdown_prefix"
+                      >
+                        Language: 
+                      </span>
+                      <span
+                        className="dropdown_toggle-text js-dropdown-toggle-text"
+                      >
+                        English 12345
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="icon icon--14-triangle-down icon--size-14 icon--currentColor u-triangle-direction-down dropdown_arrow"
+                        style={
+                          Object {
+                            "height": 14,
+                            "width": 14,
+                          }
+                        }
+                      >
+                        <svg
+                          className="icon_svg"
+                        >
+                          <svg
+                            height="100%"
+                            id="14x14_triangle_down"
+                            viewBox="0 0 14 14"
+                            width="100%"
+                          >
+                            <path
+                              d="M7 9L3.5 5h7L7 9z"
+                            />
+                          </svg>
+                        </svg>
+                      </span>
+                    </span>
+                    <div
+                      className="dropdown_menu-container"
+                    >
+                      <div
+                        className="dropdown_menu js-dropdown-menu"
+                        style={
+                          Object {
+                            "position": "absolute",
+                          }
+                        }
+                      >
+                        <div
+                          className="dropdown_menu-inner"
+                        >
+                          <ul
+                            aria-hidden="false"
+                            className="dropdown_menu-group"
+                            role="menu"
+                          >
+                            <li
+                              className="dropdown_item, menuItem"
+                              role="presentation"
+                            >
+                              <a
+                                className="tab-link js-dropdown-link tab-link--dropdown js-tab-link--dropdown is-selected"
+                                data-review-feed-label="English 12345"
+                                data-sort="relevance"
+                                onClick={[Function]}
+                              >
+                                <span
+                                  className="tab-link_label menuItem"
+                                  title="{props.item}"
+                                >
+                                  English 12345
+                                </span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <ul>
+        <li
+          className="review-wrapper"
+        >
+          <div
+            style={
+              Object {
+                "align-content": "center",
+                "boxsizing": "border-box",
+                "display": "inline-block",
+                "vertical-align": "top",
+                "width": "25%",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "boxsizing": "border-box",
+                  "display": "inline-block",
+                  "padding": "10px",
+                  "vertical-align": "top",
+                  "width": "10px",
+                }
+              }
+            >
+               
+            </div>
+            <div
+              style={
+                Object {
+                  "boxsizing": "border-box",
+                  "display": "inline-block",
+                  "padding": "10px",
+                  "vertical-align": "top",
+                  "width": "70px",
+                }
+              }
+            >
+              <img
+                alt="Lenore"
+                src="https://s3.amazonaws.com/hrsf93welpusers/man-sitting-outdoors-smiling_BYOljuCSi (1).jpg"
+                style={
+                  Object {
+                    "border-radius": "5px",
+                  }
+                }
+                width="60"
+              />
+            </div>
+            <div
+              className="media-story"
+              style={
+                Object {
+                  "boxsizing": "border-box",
+                  "display": "inline-block",
+                  "padding": "8px",
+                  "vertical-align": "top",
+                }
+              }
+            >
+              <ul>
+                <li>
+                  <a
+                    herf="#"
+                  >
+                    <b>
+                      Lenore
+                    </b>
+                  </a>
+                </li>
+                <li
+                  style={
+                    Object {
+                      "font-size": "12px",
+                    }
+                  }
+                >
+                  <span
+                    aria-hidden="true"
+                    className="icon icon--18-friends icon--size-18"
+                    style={
+                      Object {
+                        "fill": "#f15c00",
+                        "height": "18px",
+                        "width": "18px",
+                      }
+                    }
+                  >
+                    <svg
+                      className="icon_svg"
+                    >
+                      <svg
+                        height="100%"
+                        id="18x18_friends"
+                        viewBox="0 0 18 18"
+                        width="100%"
+                      >
+                        <g>
+                          <path
+                            d="M7.904 9.43l-2.098 4.697a.9.9 0 0 1-1.612 0L2.096 9.43a.902.902 0 0 1 .806-1.305h4.196c.67 0 1.105.705.806 1.305zM5 7.375a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+                          />
+                          <path
+                            d="M15.904 9.43l-2.098 4.697a.89.89 0 0 1-.806.498.89.89 0 0 1-.806-.498L10.096 9.43a.902.902 0 0 1 .806-1.305h4.195c.67 0 1.106.705.807 1.305zM13 7.375a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+                            opacity=".502"
+                          />
+                        </g>
+                      </svg>
+                    </svg>
+                  </span>
+                  <b>
+                    1
+                  </b>
+                   friends
+                </li>
+                <li
+                  style={
+                    Object {
+                      "font-size": "12px",
+                    }
+                  }
+                >
+                  <span
+                    aria-hidden="true"
+                    className="icon icon--18-review icon--size-18"
+                    style={
+                      Object {
+                        "fill": "#f15c00",
+                        "height": "18px",
+                        "width": "18px",
+                      }
+                    }
+                  >
+                    <svg
+                      className="icon_svg"
+                    >
+                      <svg
+                        height="100%"
+                        id="18x18_review"
+                        viewBox="0 0 18 18"
+                        width="100%"
+                      >
+                        <path
+                          d="M13 3H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1.505 9.643l-2.526-1.55L6.526 12.7 7 9.934 5 7.977l2.766-.404L8.97 4.7l1.264 2.873L13 7.977l-2 1.957.495 2.71z"
+                        />
+                      </svg>
+                    </svg>
+                  </span>
+                  <b>
+                    20
+                  </b>
+                   reviews
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            className="review-content"
+            style={
+              Object {
+                "boxsizing": "border-box",
+                "display": "inline-block",
+                "vertical-align": "bottom",
+                "width": "75%",
+              }
+            }
+          >
+            <img
+              alt=""
+              src="./stars/4.png"
+            />
+               
+            3/27/2017
+            <br />
+            <br />
+            <p>
+              Nice, open bar with great views of the strip and golf course.  Patio seating also.  Nice happy hour prices.  Had the carnitas nachos...very good.  And they serve breakfast all day.  Not noisy or smoky
+            </p>
+            <br />
+            <br />
+            <div
+              className="review-footer clearfix"
+            >
+              <div
+                className="rateReview voting-feedback"
+              >
+                <p
+                  className="voting-intro voting prompt"
+                >
+                  Was this review ...?
+                </p>
+                <ul>
+                  <li
+                    className="vote-item inline-block"
+                  >
+                    <span
+                      className="ybtn ybtn--small"
+                      onClick={[Function]}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="icon icon--18-useful-outline icon--size-18 icon--currentColor button-content u-space-r-half"
+                      >
+                        <img
+                          alt="button"
+                          height="18"
+                          src="useful.png"
+                          width="18"
+                        />
+                      </span>
+                      <span
+                        className="vote-type"
+                      >
+                        useful
+                         
+                        0
+                      </span>
+                    </span>
+                  </li>
+                   
+                  <li
+                    className="vote-item inline-block"
+                  >
+                    <span
+                      className="ybtn ybtn--small"
+                      onClick={[Function]}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="icon icon--18-useful-outline icon--size-18 icon--currentColor button-content u-space-r-half"
+                      >
+                        <img
+                          alt="button"
+                          height="18"
+                          src="funny.png"
+                          width="18"
+                        />
+                      </span>
+                      <span
+                        className="vote-type"
+                      >
+                        funny
+                         
+                        0
+                      </span>
+                    </span>
+                  </li>
+                   
+                  <li
+                    className="vote-item inline-block"
+                  >
+                    <span
+                      className="ybtn ybtn--small"
+                      onClick={[Function]}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="icon icon--18-useful-outline icon--size-18 icon--currentColor button-content u-space-r-half"
+                      >
+                        <img
+                          alt="button"
+                          height="18"
+                          src="cool.png"
+                          width="18"
+                        />
+                      </span>
+                      <span
+                        className="vote-type"
+                      >
+                        cool
+                         
+                        0
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

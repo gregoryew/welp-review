@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const retrieve = (id, sort, page, keyword, callback) => {
-  mongoose.connect('mongodb://localhost/test');
+  mongoose.connect('mongodb://localhost/welp');
   const { connection } = mongoose;
 
   connection.on('error', console.error.bind(console, 'connection error:'));
@@ -27,9 +27,9 @@ const retrieve = (id, sort, page, keyword, callback) => {
 
             let { stars } = data[i];
             if (Math.trunc(stars) !== stars) {
-              stars = `./stars/${Math.floor(stars).toString()}_5.png`;
+              stars = `https://s3.amazonaws.com/hrsf93welpusers/${Math.floor(stars).toString()}_5.png`;
             } else {
-              stars = `./stars/${stars}.png`;
+              stars = `https://s3.amazonaws.com/hrsf93welpusers/${stars}.png`;
             }
             data[i].stars = stars;
           }
@@ -41,7 +41,7 @@ const retrieve = (id, sort, page, keyword, callback) => {
 };
 
 const update = (reviewId, voteId, direction, userID, callback) => {
-  mongoose.connect('mongodb://localhost/test');
+  mongoose.connect('mongodb://localhost/welp');
   const { connection } = mongoose;
 
   let columnObj = {};
