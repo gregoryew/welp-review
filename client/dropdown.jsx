@@ -25,7 +25,7 @@ class DropDown extends React.Component {
   render(props) {
     return (
       <div className="feed_sort js-review-feed-sort">
-        <div className="dropdown js-dropdown dropdown--tab dropdown--arrow dropdown--hover dropdown--restricted is-active" data-component-bound="true">
+        <div className="dropdown js-dropdown dropdown--tab dropdown--hover dropdown--restricted is-active" data-component-bound="true">
           <div className="dropdown_toggle js-dropdown-toggle is-active" aria-haspopup="true" role="button" tabIndex="-1">
             <span className="dropdown_toggle-action" data-dropdown-prefix="Sort by" onClick={ () => {this.toggleVisible( this.state.selectedItem);}} >
               <span className="dropdown_prefix">
