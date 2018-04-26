@@ -4,21 +4,21 @@ import VotePanel from './VotePanel.jsx';
 
 const ReviewItem = props => (
   <li className="review-wrapper">
-    <div style={{ 'vertical-align': 'top', 'align-content': 'center', display: 'inline-block', width: '25%', boxsizing: 'border-box' }}>
-      <div style={{ 'vertical-align': 'top', padding: '10px', display: 'inline-block', width: '10px', boxsizing: 'border-box' }}>
+    <div style={{ 'verticalAlign': 'top', 'alignContent': 'center', display: 'inline-block', width: '25%', boxsizing: 'border-box' }}>
+      <div style={{ 'verticalAlign': 'top', padding: '10px', display: 'inline-block', width: '10px', boxsizing: 'border-box' }}>
         &nbsp;
       </div>
-      <div style={{ 'vertical-align': 'top', padding: '10px', display: 'inline-block', width: '70px', boxsizing: 'border-box' }}>
-        <img src={props.review.user_id.picture} alt={props.review.user_id.name} width="60" style={{ 'border-radius': '5px' }} />
+      <div style={{ 'verticalAlign': 'top', padding: '10px', display: 'inline-block', width: '70px', boxsizing: 'border-box' }}>
+        <img src={props.review.user_id.picture} alt={props.review.user_id.name} width="60" style={{ 'borderRadius': '5px' }} />
       </div>
-      <div className="media-story" style={{ 'vertical-align': 'top', padding: '8px', display: 'inline-block', boxsizing: 'border-box' }} >
+      <div className="media-story" style={{ 'verticalAlign': 'top', padding: '8px', display: 'inline-block', boxsizing: 'border-box' }} >
         <ul>
           <li>
             <a herf="#">
               <b>{props.review.user_id.name}</b>
             </a>
           </li>
-          <li style={{ 'font-size': '12px' }}>
+          <li style={{ 'fontSize': '12px' }}>
             <span aria-hidden="true" style={{ fill: '#f15c00', width: '18px', height: '18px' }} className="icon icon--18-friends icon--size-18">
               <svg className="icon_svg">
                 <svg id="18x18_friends" height="100%" viewBox="0 0 18 18" width="100%">
@@ -31,7 +31,7 @@ const ReviewItem = props => (
             </span>
             <b>{props.review.user_id.friends.length}</b>&nbsp;friends
           </li>
-          <li style={{ 'font-size': '12px' }}>
+          <li style={{ 'fontSize': '12px' }}>
             <span aria-hidden="true" style={{ fill: '#f15c00', width: '18px', height: '18px' }} className="icon icon--18-review icon--size-18">
               <svg className="icon_svg">
                 <svg id="18x18_review" height="100%" viewBox="0 0 18 18" width="100%">
@@ -44,7 +44,7 @@ const ReviewItem = props => (
         </ul>
       </div>
     </div>
-    <div className="review-content" style={{ 'vertical-align': 'bottom', display: 'inline-block', width: '75%', boxsizing: 'border-box' }}>
+    <div className="review-content" style={{ 'verticalAlign': 'bottom', display: 'inline-block', width: '75%', boxsizing: 'border-box' }}>
       <img src={props.review.stars} alt="" /> &nbsp; {moment(props.review.date).format('M/D/YYYY')}
       <br /><br />
       {props.review.text.map((paragraph, index) => <Paragraph paragraph={paragraph} key={index} />)}

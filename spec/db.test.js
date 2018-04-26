@@ -57,4 +57,47 @@ describe('Database Tests', () => {
     });
   });
 
+  // (reviewId, voteId, direction, userID, callback)
+
+  test('Should update the coolvoting array', (done) => {
+    db.update('L29UAh3Ew-MbWurDEVr4HQ', 'cool', 'up', '1', (err, data) => {
+      expect(err).toBe(null);
+      done();
+    });
+  });
+
+  test('Should update the funnyvoting array', (done) => {
+    db.update('L29UAh3Ew-MbWurDEVr4HQ', 'funny', 'up', '1', (err, data) => {
+      expect(err).toBe(null);
+      done();
+    });
+  });
+
+  test('Should update the funnyvoting array', (done) => {
+    db.update('L29UAh3Ew-MbWurDEVr4HQ', 'useful', 'up', '1', (err, data) => {
+      expect(err).toBe(null);
+      done();
+    });
+  });
+
+  test('Should remove from the coolvoting array', (done) => {
+    db.update('L29UAh3Ew-MbWurDEVr4HQ', 'cool', 'down', '1', (err, data) => {
+      expect(err).toBe(null);
+      done();
+    });
+  });
+
+  test('Should remove from the funnyvoting array', (done) => {
+    db.update('L29UAh3Ew-MbWurDEVr4HQ', 'funny', 'down', '1', (err, data) => {
+      expect(err).toBe(null);
+      done();
+    });
+  });
+
+  test('Should remove from usefulvoting array', (done) => {
+    db.update('L29UAh3Ew-MbWurDEVr4HQ', 'useful', 'down', '1', (err, data) => {
+      expect(err).toBe(null);
+      done();
+    });
+  });
 });

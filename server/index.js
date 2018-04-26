@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const db = require('../db/index.js');
 const path = require('path');
 
@@ -11,7 +12,7 @@ app.use(express.static(path.join(__dirname, '/../public')));
 
 app.use(jsonParser);
 
-app.get('/api/review/votes/:reviewid/:button/:direction/:userID', (req, res) => {
+app.get('/api/review/votes/:reviewid/:button/:direction/:userID', cors(), (req, res) => {
   db.update(req.params.reviewid, req.params.button, req.params.direction, req.params.userID, (err, review) => {
     if (err) {
       res.sendStatus(500);
@@ -31,11 +32,11 @@ function retrieve(id, sort, page, keyword = '', req, res) {
   });
 }
 
-app.get('/api/review/:id/:sort/:page/:keyword', (req, res) => {
+app.get('/api/review/:id/:sort/:page/:keyword', cors(), (req, res) => {
   retrieve(req.params.id, req.params.sort, req.params.page, req.params.keyword, req, res);
 });
 
-app.get('/api/review/:id/:sort/:page', (req, res) => {
+app.get('/api/review/:id/:sort/:page', cors(), (req, res) => {
   retrieve(req.params.id, req.params.sort, req.params.page, '', req, res);
 });
 
