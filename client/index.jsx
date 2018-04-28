@@ -51,7 +51,7 @@ class Reviews extends React.Component {
     if (id === undefined) { id = this.state.restaurantId; }
     if (sort === undefined) { sort = this.state.sort; }
     if (page === undefined) { page = this.state.page; }
-    let urlString = `http://127.0.0.1:3004/api/review/${id}/${sort}/${page}`;
+    let urlString = `http://18.188.254.251:80/api/review/${id}/${sort}/${page}`;
     if (keyword !== '') { urlString += `\\${keyword}`; }
     $.ajax({
       url: urlString,

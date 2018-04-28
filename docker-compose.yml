@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  welp-reviews:
+    build: gregoryew/welp-reviews:latest
+    depends_on:
+      - 'database'
+      - 'cache'
+    ports:
+      - '3004:3000'
+
+  database:
+    image: mongo:latest
+
+  cache:
+    image: redis:latest
