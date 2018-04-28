@@ -9,8 +9,8 @@ class VotePanel extends React.Component {
     this.props = props;
     this.increaseVote = this.increaseVote.bind(this);
     this.didUserVoteFor = this.didUserVoteFor.bind(this);
-    // this.uniqueUnion = this.uniqueUnion.bind(this);
-    // this.generateUUID = this.generateUUID.bind(this);
+    //this.uniqueUnion = this.uniqueUnion.bind(this);
+    //this.generateUUID = this.generateUUID.bind(this);
   }
 
   componentWillMount() {
@@ -32,7 +32,7 @@ class VotePanel extends React.Component {
     let funnyClassStr = 'ybtn ybtn--small';
     let funnyImgStr = 'https://s3.amazonaws.com/hrsf93welpusers/funny.png';
     const userVotedCool = this.didUserVoteFor(this.props.review.cool_votes, uid);
-    if (userVotedCool) { 
+    if (userVotedCool) {
       coolClassStr = 'ybtn ybtn--small voted';
       coolImgStr = 'https://s3.amazonaws.com/hrsf93welpusers/cool-white.png';
     }
@@ -163,7 +163,7 @@ class VotePanel extends React.Component {
     }
 
     $.ajax({
-      url: `http://127.0.0.1:3004/api/review/votes/${reviewId}/${whichButton}/${direction}/${this.state.UserID}`,
+      url: `http://18.188.254.251:80/api/review/votes/${reviewId}/${whichButton}/${direction}/${this.state.UserID}`,
       error: (err) => {console.log(err)},
       success: (data) => {console.log(data)},
       type: 'GET',
